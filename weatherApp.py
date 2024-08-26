@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import requests
+import config
 
 # Create the main window
 root = tk.Tk()
