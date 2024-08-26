@@ -26,7 +26,7 @@ weather_label.pack()
 def fetch_weather():
     city = city_entry.get()
     # Add your API key here
-    api_key = "24d6e2d80f5a408ac8e988c062b2f04f"
+    api_key = config.API_KEY
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     
     try:
@@ -36,7 +36,7 @@ def fetch_weather():
         temperatureC = int(temperature - 273.15)
         temperatureF = (temperatureC * 9/5) + 32
         weather = data["weather"][0]["description"]
-        weather_label.config(text=f"Temperature: {temperatureF}°C\nWeather: {weather}")
+        weather_label.config(text=f"Temperature: {temperatureF}°F\nWeather: {weather}")
     except Exception as e:
         messagebox.showerror("Error", "Unable to fetch weather data")
 
